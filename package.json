@@ -1,0 +1,29 @@
+{
+  "name": "mooxe-docker-node",
+  "version": "0.0.0",
+  "description": "docker image for node application of mooxe",
+  "author": "FooTearth <footearth@gmail.com>",
+  "main": "build.coffee",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Mooxe000/mooxe-docker-node.git"
+  },
+  "bugs": {
+    "url": "https://github.com/Mooxe000/mooxe-docker-node/issues"
+  },
+  "homepage": "https://github.com/Mooxe000/mooxe-docker-node",
+  "Keywords": [
+    "docker",
+    "daocloud",
+    "image"
+  ],
+  "bin": {},
+  "scripts": {
+    "test": "echo 'hello'"
+  },
+  "dependencies": {},
+  "devDependencies": {
+    "shelljs": "^0.4.0"
+  }
+}
