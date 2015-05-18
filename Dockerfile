@@ -28,3 +28,18 @@ RUN \
   echo "nvm use default" >> ~/.nvm/nvm-tmp.sh && \
   sh ~/.nvm/nvm-tmp.sh && \
   rm ~/.nvm/nvm-tmp.sh
+
+USER root
+
+RUN \
+  cp /etc/profile /etc/profile.bak && \
+  echo '. /home/docker/.nvm/nvm.sh' >> /etc/profile
+
+USER docker
+WORKDIR /home/docker
+
+RUN \
+
+  # global package
+  /bin/bash -l -c 'npm install -g cnpm --registry=https://r.cnpmjs.org' && \
+  /bin/bash -l -c 'cnpm install -g pm2 http-server coffee-script'
