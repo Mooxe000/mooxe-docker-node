@@ -2,8 +2,7 @@ FROM mooxe/base:latest
 
 MAINTAINER FooTearth "footearth@gmail.com"
 
-USER docker
-WORKDIR /home/docker
+WORKDIR /home/root
 
 # ENV NODE_VERSION_10 0.10.38
 # ENV NODE_VERSION_12 0.12.3
@@ -27,18 +26,10 @@ RUN \
   echo "nvm alias default 12" >> ~/.nvm/nvm-tmp.sh && \
   echo "nvm use default" >> ~/.nvm/nvm-tmp.sh && \
   sh ~/.nvm/nvm-tmp.sh && \
-  rm ~/.nvm/nvm-tmp.sh
+  rm ~/.nvm/nvm-tmp.sh && \
 
-USER root
-
-RUN \
   cp /etc/profile /etc/profile.bak && \
-  echo '. /home/docker/.nvm/nvm.sh' >> /etc/profile
-
-USER docker
-WORKDIR /home/docker
-
-RUN \
+  echo '. /root/.nvm/nvm.sh' >> /etc/profile && \
 
   # global package
   /bin/bash -l -c 'npm install -g cnpm --registry=https://r.cnpmjs.org' && \
