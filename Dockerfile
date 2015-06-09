@@ -4,8 +4,7 @@ MAINTAINER FooTearth "footearth@gmail.com"
 
 WORKDIR /home/root
 
-# ENV NODE_VERSION_10 0.10.38
-# ENV NODE_VERSION_12 0.12.3
+# ENV NODE_VERSION_12 0.12.4
 
 RUN \
 
@@ -21,8 +20,8 @@ RUN \
 
   # npm
   cp -f ~/.nvm/nvm.sh ~/.nvm/nvm-tmp.sh && \
-  echo "nvm install 0.12.3" >> ~/.nvm/nvm-tmp.sh && \
-  echo "nvm alias 12 0.12.3" >> ~/.nvm/nvm-tmp.sh && \
+  echo "nvm install 0.12.4" >> ~/.nvm/nvm-tmp.sh && \
+  echo "nvm alias 12 0.12.4" >> ~/.nvm/nvm-tmp.sh && \
   echo "nvm alias default 12" >> ~/.nvm/nvm-tmp.sh && \
   echo "nvm use default" >> ~/.nvm/nvm-tmp.sh && \
   sh ~/.nvm/nvm-tmp.sh && \
