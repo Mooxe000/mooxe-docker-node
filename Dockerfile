@@ -2,9 +2,9 @@ FROM mooxe/base:latest
 
 MAINTAINER FooTearth "footearth@gmail.com"
 
-WORKDIR /home/root
+ENV NODE_VERSION_12 0.12.6
 
-# ENV NODE_VERSION_12 0.12.4
+WORKDIR /root
 
 RUN \
 
@@ -15,13 +15,13 @@ RUN \
   echo ". ~/.nvm/nvm.sh" >> ~/.zshrc && \
 
   # nvm - fish support
-  git clone git://github.com/passcod/nvm-fish-wrapper.git ~/.config/fish/nvm-wrapper && \
+  git clone https://github.com/passcod/nvm-fish-wrapper.git ~/.config/fish/nvm-wrapper && \
   echo ". ~/.config/fish/nvm-wrapper/nvm.fish" >> ~/.config/fish/config.fish && \
 
   # npm
   cp -f ~/.nvm/nvm.sh ~/.nvm/nvm-tmp.sh && \
-  echo "nvm install 0.12.4" >> ~/.nvm/nvm-tmp.sh && \
-  echo "nvm alias 12 0.12.4" >> ~/.nvm/nvm-tmp.sh && \
+  echo "nvm install $NODE_VERSION_12" >> ~/.nvm/nvm-tmp.sh && \
+  echo "nvm alias 12 $NODE_VERSION_12" >> ~/.nvm/nvm-tmp.sh && \
   echo "nvm alias default 12" >> ~/.nvm/nvm-tmp.sh && \
   echo "nvm use default" >> ~/.nvm/nvm-tmp.sh && \
   sh ~/.nvm/nvm-tmp.sh && \
