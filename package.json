@@ -3,7 +3,6 @@
   "version": "0.0.0",
   "description": "docker image for node application of mooxe",
   "author": "FooTearth <footearth@gmail.com>",
-  "main": "build.coffee",
   "license": "MIT",
   "repository": {
     "type": "git",
