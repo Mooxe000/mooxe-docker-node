@@ -7,6 +7,13 @@ ENV NODE_VERSION_12 0.12.7
 WORKDIR /root
 
 RUN \
+  # update
+  apt-get update && \
+  apt-get update && \
+  apt-get upgrade -y && \
+  apt-get autoremove -y
+
+RUN \
 
   # nvm
   curl https://raw.githubusercontent.com/creationix/nvm/v0.24.0/install.sh | bash && \
