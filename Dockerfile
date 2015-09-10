@@ -2,7 +2,7 @@ FROM mooxe/base:latest
 
 MAINTAINER FooTearth "footearth@gmail.com"
 
-ENV NODE_VERSION_12 0.12.7
+ENV NODE_VERSION 4.0.0
 
 WORKDIR /root
 
@@ -27,9 +27,9 @@ RUN \
 
   # npm
   cp -f ~/.nvm/nvm.sh ~/.nvm/nvm-tmp.sh && \
-  echo "nvm install $NODE_VERSION_12" >> ~/.nvm/nvm-tmp.sh && \
-  echo "nvm alias 12 $NODE_VERSION_12" >> ~/.nvm/nvm-tmp.sh && \
-  echo "nvm alias default 12" >> ~/.nvm/nvm-tmp.sh && \
+  echo "nvm install $NODE_VERSION" >> ~/.nvm/nvm-tmp.sh && \
+  echo "nvm alias 4 $NODE_VERSION" >> ~/.nvm/nvm-tmp.sh && \
+  echo "nvm alias default 4" >> ~/.nvm/nvm-tmp.sh && \
   echo "nvm use default" >> ~/.nvm/nvm-tmp.sh && \
   sh ~/.nvm/nvm-tmp.sh && \
   rm ~/.nvm/nvm-tmp.sh && \
