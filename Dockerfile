@@ -2,7 +2,7 @@ FROM mooxe/base:latest
 
 MAINTAINER FooTearth "footearth@gmail.com"
 
-ENV NODE_VERSION 4.0.0
+ENV NODE_VERSION 4.1.1
 
 WORKDIR /root
 
@@ -39,4 +39,5 @@ RUN \
 
   # global package
   /bin/bash -l -c 'npm install -g cnpm --registry=https://r.cnpmjs.org' && \
-  /bin/bash -l -c 'cnpm install -g pm2 http-server coffee-script'
+  /bin/bash -l -c 'cnpm install -g \
+    coffee-script http-server supervisor nodemon forever pm2'
