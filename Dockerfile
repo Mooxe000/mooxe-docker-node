@@ -2,7 +2,7 @@ FROM mooxe/base:latest
 
 MAINTAINER FooTearth "footearth@gmail.com"
 
-ENV NODE_VERSION 4.1.1
+ENV NODE_VERSION 4.1.2
 
 WORKDIR /root
 
@@ -23,7 +23,9 @@ RUN \
 
   # nvm - fish support
   git clone https://github.com/passcod/nvm-fish-wrapper.git ~/.config/fish/nvm-wrapper && \
-  echo ". ~/.config/fish/nvm-wrapper/nvm.fish" >> ~/.config/fish/config.fish && \
+  echo ". ~/.config/fish/nvm-wrapper/nvm.fish" >> ~/.config/fish/config.fish
+
+RUN \
 
   # npm
   cp -f ~/.nvm/nvm.sh ~/.nvm/nvm-tmp.sh && \
@@ -35,7 +37,9 @@ RUN \
   rm ~/.nvm/nvm-tmp.sh && \
 
   cp /etc/profile /etc/profile.bak && \
-  echo '. /root/.nvm/nvm.sh' >> /etc/profile && \
+  echo '. /root/.nvm/nvm.sh' >> /etc/profile
+
+RUN \
 
   # global package
   /bin/bash -l -c 'npm install -g cnpm --registry=https://r.cnpmjs.org' && \

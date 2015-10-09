@@ -21,7 +21,7 @@
   "scripts": {
     "build": "docker build -t mooxe/node .",
     "rebuild": "docker build --no-cache -t mooxe/node .",
-    "in": "docker run -t -i mooxe/node /bin/bash",
+    "in": "docker run --name=node --rm -ti -v `pwd`:/root/node mooxe/node /bin/bash",
     "push": "docker push mooxe/node",
     "test": "echo 'hello'"
   },
