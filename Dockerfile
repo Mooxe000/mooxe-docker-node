@@ -2,13 +2,12 @@ FROM mooxe/base:latest
 
 MAINTAINER FooTearth "footearth@gmail.com"
 
-ENV NODE_VERSION 4.1.2
+ENV NODE_VERSION 4.2.1
 
 WORKDIR /root
 
+# update
 RUN \
-  # update
-  apt-get update && \
   apt-get update && \
   apt-get upgrade -y && \
   apt-get autoremove -y
