@@ -2,7 +2,7 @@ FROM mooxe/base:latest
 
 MAINTAINER FooTearth "footearth@gmail.com"
 
-ENV NODE_VERSION 4.2.1
+ENV NODE_VERSION 5.0.0
 
 WORKDIR /root
 
@@ -29,8 +29,8 @@ RUN \
   # npm
   cp -f ~/.nvm/nvm.sh ~/.nvm/nvm-tmp.sh && \
   echo "nvm install $NODE_VERSION" >> ~/.nvm/nvm-tmp.sh && \
-  echo "nvm alias 4 $NODE_VERSION" >> ~/.nvm/nvm-tmp.sh && \
-  echo "nvm alias default 4" >> ~/.nvm/nvm-tmp.sh && \
+  echo "nvm alias 5 $NODE_VERSION" >> ~/.nvm/nvm-tmp.sh && \
+  echo "nvm alias default 5" >> ~/.nvm/nvm-tmp.sh && \
   echo "nvm use default" >> ~/.nvm/nvm-tmp.sh && \
   sh ~/.nvm/nvm-tmp.sh && \
   rm ~/.nvm/nvm-tmp.sh && \
@@ -41,6 +41,6 @@ RUN \
 RUN \
 
   # global package
-  /bin/bash -l -c 'npm install -g cnpm --registry=https://r.cnpmjs.org' && \
+  /bin/bash -l -c 'npm install -g cnpm --registry=https://registry.npm.taobao.org' && \
   /bin/bash -l -c 'cnpm install -g \
     coffee-script http-server supervisor nodemon forever pm2'
