@@ -2,7 +2,7 @@ FROM mooxe/base:latest
 
 MAINTAINER FooTearth "footearth@gmail.com"
 
-ENV NODE_VERSION 5.4.1
+ENV NODE_VERSION 5.7.0
 
 WORKDIR /root
 
