@@ -2,7 +2,7 @@ FROM mooxe/base:latest
 
 MAINTAINER FooTearth "footearth@gmail.com"
 
-ENV NODE_VERSION 5.7.0
+ENV NODE_VERSION 5.8.0
 
 WORKDIR /root
 
@@ -10,6 +10,8 @@ WORKDIR /root
 RUN aptitude update && \
     aptitude upgrade -y && \
     apt-get autoremove -y
+
+RUN aptitude install -y g++
 
     # nvm
 RUN curl https://raw.githubusercontent.com/creationix/nvm/v0.24.0/install.sh | bash && \
@@ -34,6 +36,13 @@ RUN cp -f ~/.nvm/nvm.sh ~/.nvm/nvm-tmp.sh && \
     echo '. /root/.nvm/nvm.sh' >> /etc/profile
 
     # global package
-RUN /bin/bash -l -c 'npm install -g cnpm --registry=https://registry.npm.taobao.org' && \
-    /bin/bash -l -c 'cnpm install -g \
-      coffee-script http-server supervisor nodemon forever pm2 bower gulp-cli'
+RUN /bin/bash -lc 'npm install -g cnpm \
+      --registry=https://registry.npm.taobao.org'
+
+RUN /bin/bash -lc 'cnpm install -g \
+      node-gyp'
+
+RUN /bin/bash -lc 'cnpm install -g \
+      coffee-script node-inspector \
+      gulp-cli gitbook-cli \
+      http-server supervisor nodemon forever pm2'

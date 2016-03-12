@@ -23,14 +23,13 @@ pkgs = [
   'pm2',
   'http-server',
   'coffee-script',
-  'bower',
   'cson',
   'harp',
   'gitbook-cli',
   'hexo-cli',
-  'npb-coffee',
-  'gulp',
+  'gulp-cli',
   'node-inspector'
+  'react-native-cli'
 ]
 
 def print_log (r):
