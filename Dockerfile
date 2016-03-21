@@ -25,7 +25,7 @@ RUN curl https://raw.githubusercontent.com/creationix/nvm/v0.24.0/install.sh | b
 
     # npm
 RUN cp -f ~/.nvm/nvm.sh ~/.nvm/nvm-tmp.sh && \
-    echo "nvm install $NODE_VERSION" >> ~/.nvm/nvm-tmp.sh && \
+    echo "nvm install v$NODE_VERSION" >> ~/.nvm/nvm-tmp.sh && \
     echo "nvm alias 5 $NODE_VERSION" >> ~/.nvm/nvm-tmp.sh && \
     echo "nvm alias default 5" >> ~/.nvm/nvm-tmp.sh && \
     echo "nvm use default" >> ~/.nvm/nvm-tmp.sh && \
