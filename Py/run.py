@@ -20,16 +20,32 @@ _source_ = {
 node_version = '0.12.7'
 
 pkgs = [
+  'cnpm'
+  'pnpm'
+  'npm-check'
+
+  'node-gyp'
+
   'pm2',
+  'supervisor'
+  'nodemon'
+  'forever'
+
   'http-server',
+  'node-inspector'
+
+  'harp',
   'coffee-script',
   'cson',
-  'harp',
+
+  'gulp-cli',
+  'babel-cli',
+  'react-native-cli',
+
   'gitbook-cli',
   'hexo-cli',
-  'gulp-cli',
-  'node-inspector'
-  'react-native-cli'
+  'gh-pages',
+  'nodeppt'
 ]
 
 def print_log (r):
@@ -66,7 +82,7 @@ def nvm_install():
   )
   run_commander(commander)
 
- def nvm_config():
+def nvm_config():
   line_str = ". {path_home}/.nvm/nvm.sh"
   line_str = line_str.format(
     path_home = _path_['home']

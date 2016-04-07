@@ -2,7 +2,7 @@ FROM mooxe/base:latest
 
 MAINTAINER FooTearth "footearth@gmail.com"
 
-ENV NODE_VERSION 5.9.0
+ENV NODE_VERSION 5.10.1
 
 WORKDIR /root
 
@@ -43,6 +43,7 @@ RUN /bin/bash -lc 'cnpm install -g \
       node-gyp'
 
 RUN /bin/bash -lc 'cnpm install -g \
+      pnpm \
       coffee-script node-inspector \
-      gulp-cli gitbook-cli \
-      http-server supervisor nodemon forever pm2'
+      gulp-cli http-server \
+      supervisor nodemon forever pm2'
