@@ -2,7 +2,7 @@ FROM mooxe/base:latest
 
 MAINTAINER FooTearth "footearth@gmail.com"
 
-ENV NODE_VERSION 5.10.1
+ENV NODE_VERSION 6.2.0
 
 WORKDIR /root
 
@@ -14,7 +14,7 @@ RUN aptitude update && \
 RUN aptitude install -y g++
 
     # nvm
-RUN curl https://raw.githubusercontent.com/creationix/nvm/v0.24.0/install.sh | bash && \
+RUN curl https://raw.githubusercontent.com/creationix/nvm/v0.31.1/install.sh | bash && \
 
     # nvm - zsh support
     echo ". ~/.nvm/nvm.sh" >> ~/.zshrc && \
@@ -26,8 +26,8 @@ RUN curl https://raw.githubusercontent.com/creationix/nvm/v0.24.0/install.sh | b
     # npm
 RUN cp -f ~/.nvm/nvm.sh ~/.nvm/nvm-tmp.sh && \
     echo "nvm install v$NODE_VERSION" >> ~/.nvm/nvm-tmp.sh && \
-    echo "nvm alias 5 $NODE_VERSION" >> ~/.nvm/nvm-tmp.sh && \
-    echo "nvm alias default 5" >> ~/.nvm/nvm-tmp.sh && \
+    echo "nvm alias 6 $NODE_VERSION" >> ~/.nvm/nvm-tmp.sh && \
+    echo "nvm alias default 6" >> ~/.nvm/nvm-tmp.sh && \
     echo "nvm use default" >> ~/.nvm/nvm-tmp.sh && \
     sh ~/.nvm/nvm-tmp.sh && \
     rm ~/.nvm/nvm-tmp.sh && \

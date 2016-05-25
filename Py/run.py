@@ -17,7 +17,7 @@ _source_ = {
   'nvm-fish-wrapper': 'git://github.com/passcod/nvm-fish-wrapper.git'
 }
 
-node_version = '0.12.7'
+node_version = '6.2.0'
 
 pkgs = [
   'cnpm'
