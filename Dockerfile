@@ -43,7 +43,7 @@ RUN /bin/bash -lc 'cnpm install -g \
       node-gyp'
 
 RUN /bin/bash -lc 'cnpm install -g \
-      pnpm \
+      pnpm npm-check \
       coffee-script node-inspector \
       gulp-cli http-server \
       supervisor nodemon forever pm2'
