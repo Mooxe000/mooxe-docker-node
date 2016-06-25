@@ -2,8 +2,6 @@ FROM mooxe/base:latest
 
 MAINTAINER FooTearth "footearth@gmail.com"
 
-ENV NODE_VERSION 6.2.0
-
 WORKDIR /root
 
 # update
@@ -13,7 +11,7 @@ RUN aptitude update && \
 
 RUN aptitude install -y g++
 
-    # nvm
+# nvm
 RUN curl https://raw.githubusercontent.com/creationix/nvm/v0.31.1/install.sh | bash && \
 
     # nvm - zsh support
@@ -23,7 +21,9 @@ RUN curl https://raw.githubusercontent.com/creationix/nvm/v0.31.1/install.sh | b
     git clone https://github.com/passcod/nvm-fish-wrapper.git ~/.config/fish/nvm-wrapper && \
     echo ". ~/.config/fish/nvm-wrapper/nvm.fish" >> ~/.config/fish/config.fish
 
-    # npm
+ENV NODE_VERSION 6.2.2
+
+# npm
 RUN cp -f ~/.nvm/nvm.sh ~/.nvm/nvm-tmp.sh && \
     echo "nvm install v$NODE_VERSION" >> ~/.nvm/nvm-tmp.sh && \
     echo "nvm alias 6 $NODE_VERSION" >> ~/.nvm/nvm-tmp.sh && \
@@ -47,3 +47,5 @@ RUN /bin/bash -lc 'cnpm install -g \
       coffee-script node-inspector \
       gulp-cli http-server \
       supervisor nodemon forever pm2'
+
+RUN /bin/bash -lc 'cnpm install -g https://github.com/sintaxi/harp.git#v0.21.0-pre'
