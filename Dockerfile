@@ -21,7 +21,7 @@ RUN curl https://raw.githubusercontent.com/creationix/nvm/v0.31.1/install.sh | b
     git clone https://github.com/passcod/nvm-fish-wrapper.git ~/.config/fish/nvm-wrapper && \
     echo ". ~/.config/fish/nvm-wrapper/nvm.fish" >> ~/.config/fish/config.fish
 
-ENV NODE_VERSION 6.2.2
+ENV NODE_VERSION 6.7.0
 
 # npm
 RUN cp -f ~/.nvm/nvm.sh ~/.nvm/nvm-tmp.sh && \
