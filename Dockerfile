@@ -9,7 +9,7 @@ RUN apt-get update && \
     apt-get upgrade -y && \
     apt-get autoremove -y
 
-RUN apt-get install -y g++
+RUN apt-get install -y make g++
 
 # nvm
 RUN curl https://raw.githubusercontent.com/creationix/nvm/v0.31.1/install.sh | bash && \
@@ -51,6 +51,7 @@ RUN yarn global add node-gyp
 # RUN yarn global add node-inspector
 RUN yarn global add pnpm npm-check
 RUN bash -lc "npm install -g coffeescript@next"
+RUN yarn global add babel-cli
 RUN yarn global add gulp-cli http-server
 RUN yarn global add supervisor nodemon forever pm2
 # RUN yarn global add harp
