@@ -21,7 +21,7 @@ RUN curl https://raw.githubusercontent.com/creationix/nvm/v0.31.1/install.sh | b
     git clone https://github.com/passcod/nvm-fish-wrapper.git ~/.config/fish/nvm-wrapper && \
     echo ". ~/.config/fish/nvm-wrapper/nvm.fish" >> ~/.config/fish/config.fish
 
-ENV NODE_VERSION 8.0.0
+ENV NODE_VERSION 8.1.3
 
 # npm
 RUN cp -f ~/.nvm/nvm.sh ~/.nvm/nvm-tmp.sh && \
@@ -42,6 +42,7 @@ RUN \
 
 RUN apt-get update && apt-get install -y yarn
 # RUN /bin/bash -lc 'npm install -g yarn'
+RUN yarn config set registry https://registry.npm.taobao.org
 
 # global package
 RUN /bin/bash -lc 'npm install -g cnpm \
