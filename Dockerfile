@@ -35,10 +35,9 @@ RUN cp -f ~/.nvm/nvm.sh ~/.nvm/nvm-tmp.sh && \
     cp /etc/profile /etc/profile.bak && \
     echo '. /root/.nvm/nvm.sh' >> /etc/profile
 
-RUN \
-  bash -lc "curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | apt-key add -" && \
-  bash -lc "echo 'deb https://dl.yarnpkg.com/debian/ stable main' | tee /etc/apt/sources.list.d/yarn.list" && \
-  apt-get install -y apt-transport-https
+RUN bash -lc "curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | apt-key add -" && \
+    bash -lc "echo 'deb https://dl.yarnpkg.com/debian/ stable main' | tee /etc/apt/sources.list.d/yarn.list" && \
+    apt-get install -y apt-transport-https
 
 RUN apt-get update && apt-get install -y yarn
 # RUN /bin/bash -lc 'npm install -g yarn'
@@ -48,11 +47,12 @@ RUN yarn config set registry https://registry.npm.taobao.org
 RUN /bin/bash -lc 'npm install -g cnpm \
       --registry=https://registry.npm.taobao.org'
 
-RUN yarn global add node-gyp
+RUN /bin/bash -lc 'yarn global add npm'
+RUN /bin/bash -lc 'yarn global add node-gyp'
 # RUN yarn global add node-inspector
-RUN yarn global add pnpm npm-check
-RUN bash -lc "npm install -g coffeescript@next"
-RUN yarn global add babel-cli
-RUN yarn global add gulp-cli http-server
-RUN yarn global add supervisor nodemon forever pm2
+RUN /bin/bash -lc 'yarn global add pnpm npm-check'
+RUN /bin/bash -lc 'yarn global add coffeescript@next'
+RUN /bin/bash -lc 'yarn global add babel-cli'
+RUN /bin/bash -lc 'yarn global add gulp-cli http-server stylus'
+RUN /bin/bash -lc 'yarn global add supervisor nodemon forever pm2'
 # RUN yarn global add harp
