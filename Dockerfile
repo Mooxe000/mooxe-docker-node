@@ -12,7 +12,7 @@ RUN apt-get update && \
 RUN apt-get install -y make g++
 
 # nvm
-RUN curl https://raw.githubusercontent.com/creationix/nvm/v0.31.1/install.sh | bash && \
+RUN curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.33.2/install.sh | bash && \
 
     # nvm - zsh support
     echo ". ~/.nvm/nvm.sh" >> ~/.zshrc && \
@@ -21,7 +21,7 @@ RUN curl https://raw.githubusercontent.com/creationix/nvm/v0.31.1/install.sh | b
     git clone https://github.com/passcod/nvm-fish-wrapper.git ~/.config/fish/nvm-wrapper && \
     echo ". ~/.config/fish/nvm-wrapper/nvm.fish" >> ~/.config/fish/config.fish
 
-ENV NODE_VERSION 8.1.3
+ENV NODE_VERSION 8.2.1
 
 # npm
 RUN cp -f ~/.nvm/nvm.sh ~/.nvm/nvm-tmp.sh && \
