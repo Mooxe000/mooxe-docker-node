@@ -12,18 +12,24 @@ RUN apt-get update && \
 RUN apt-get install -y make g++
 
 # nvm
-RUN curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.33.2/install.sh | bash && \
+ENV NVM_VERSION 0.33.4
+RUN curl -o- https://raw.githubusercontent.com/creationix/nvm/v${NVM_VERSION}/install.sh | bash && \
 
-    # nvm - zsh support
-    echo ". ~/.nvm/nvm.sh" >> ~/.zshrc && \
+    # nvm - zsh spport
+    echo ". ~/.nvm/nvm.sh" >> ~/.zshrc
 
-    # nvm - fish support
-    git clone https://github.com/passcod/nvm-fish-wrapper.git ~/.config/fish/nvm-wrapper && \
-    echo ". ~/.config/fish/nvm-wrapper/nvm.fish" >> ~/.config/fish/config.fish
+    # nvm - fish upport
+RUN fish -lc "fisher edc/bass"
+RUN echo "\
+function nvm\n\
+  bass source ~/.nvm/nvm.sh --no-use ';' nvm \$argv\n\
+end" >> ~/.config/fish/config.fish
 
-ENV NODE_VERSION 8.2.1
+    # git clone https://github.com/passcod/nvm-fish-wrapper.git ~/.config/fish/nvm-wrapper && \
+    # echo ". ~/.config/fish/nvm-wrapper/nvm.fish" >> ~/.config/fish/config.fish
 
 # npm
+ENV NODE_VERSION 8.5.0
 RUN cp -f ~/.nvm/nvm.sh ~/.nvm/nvm-tmp.sh && \
     echo "nvm install v$NODE_VERSION" >> ~/.nvm/nvm-tmp.sh && \
     echo "nvm alias 8 $NODE_VERSION" >> ~/.nvm/nvm-tmp.sh && \
@@ -35,14 +41,15 @@ RUN cp -f ~/.nvm/nvm.sh ~/.nvm/nvm-tmp.sh && \
     cp /etc/profile /etc/profile.bak && \
     echo '. /root/.nvm/nvm.sh' >> /etc/profile
 
+# Yarn
 RUN bash -lc "curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | apt-key add -" && \
     bash -lc "echo 'deb https://dl.yarnpkg.com/debian/ stable main' | tee /etc/apt/sources.list.d/yarn.list" && \
     apt-get install -y apt-transport-https
 
 RUN apt-get update && apt-get install -y yarn
-# RUN /bin/bash -lc 'npm install -g yarn'
-RUN yarn config set registry https://registry.npm.taobao.org
+RUN /bin/bash -lc 'npm install -g yarn'
 
+RUN yarn config set registr https://registry.npm.taobao.org
 # global package
 RUN /bin/bash -lc 'npm install -g cnpm \
       --registry=https://registry.npm.taobao.org'
