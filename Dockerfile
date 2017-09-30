@@ -12,7 +12,7 @@ RUN apt-get update && \
 RUN apt-get install -y make g++
 
 # nvm
-ENV NVM_VERSION 0.33.4
+ENV NVM_VERSION 0.33.5
 RUN curl -o- https://raw.githubusercontent.com/creationix/nvm/v${NVM_VERSION}/install.sh | bash && \
 
     # nvm - zsh spport
@@ -29,7 +29,7 @@ end" >> ~/.config/fish/config.fish
     # echo ". ~/.config/fish/nvm-wrapper/nvm.fish" >> ~/.config/fish/config.fish
 
 # npm
-ENV NODE_VERSION 8.5.0
+ENV NODE_VERSION 8.6.0
 RUN cp -f ~/.nvm/nvm.sh ~/.nvm/nvm-tmp.sh && \
     echo "nvm install v$NODE_VERSION" >> ~/.nvm/nvm-tmp.sh && \
     echo "nvm alias 8 $NODE_VERSION" >> ~/.nvm/nvm-tmp.sh && \
