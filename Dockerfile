@@ -28,7 +28,7 @@ end" >> ~/.config/fish/config.fish
     # echo ". ~/.config/fish/nvm-wrapper/nvm.fish" >> ~/.config/fish/config.fish
 
 # npm
-ENV NODE_VERSION 9.5.0
+ENV NODE_VERSION 9.7.1
 RUN cp -f ~/.nvm/nvm.sh ~/.nvm/nvm-tmp.sh && \
     echo "nvm install v$NODE_VERSION" >> ~/.nvm/nvm-tmp.sh && \
     echo "nvm alias 9 $NODE_VERSION" >> ~/.nvm/nvm-tmp.sh && \
@@ -57,11 +57,17 @@ RUN /bin/bash -lc 'yrm use taobao'
 
 RUN /bin/bash -lc 'yarn global add npm'
 RUN /bin/bash -lc 'yarn global add node-gyp'
-# RUN yarn global add node-inspector
-RUN /bin/bash -lc 'yarn global add pnpm npm-check'
+
+RUN /bin/bash -lc 'yarn global add node-inspector'
+
+# RUN /bin/bash -lc 'yarn global add yarn-upgrade-all'
+# RUN /bin/bash -lc 'yarn global add pnpm npm-check'
+
 RUN /bin/bash -lc 'yarn global add coffeescript'
-RUN /bin/bash -lc 'yarn global add rollup'
-RUN /bin/bash -lc 'yarn global add gulp-cli http-server'
+
+# RUN /bin/bash -lc 'yarn global add rollup gulp-cli'
+RUN /bin/bash -lc 'yarn global add serve http-server'
+# RUN yarn global add harp
+
 RUN /bin/bash -lc 'yarn global add supervisor nodemon forever pm2'
 RUN /bin/bash -lc 'yarn global add json-server now'
-# RUN yarn global add harp
