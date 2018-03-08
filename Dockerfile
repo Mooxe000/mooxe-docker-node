@@ -18,17 +18,17 @@ RUN curl -o- https://raw.githubusercontent.com/creationix/nvm/v${NVM_VERSION}/in
     echo ". ~/.nvm/nvm.sh" >> ~/.zshrc
 
     # nvm - fish upport
-RUN fish -lc "fisher edc/bass"
-RUN echo "\
-function nvm\n\
-  bass source ~/.nvm/nvm.sh --no-use ';' nvm \$argv\n\
-end" >> ~/.config/fish/config.fish
+RUN fish -lc "fisher edc/bass nvm"
+# RUN echo "\
+# function nvm\n\
+#   bass source ~/.nvm/nvm.sh --no-use ';' nvm \$argv\n\
+# end" >> ~/.config/fish/config.fish
 
     # git clone https://github.com/passcod/nvm-fish-wrapper.git ~/.config/fish/nvm-wrapper && \
     # echo ". ~/.config/fish/nvm-wrapper/nvm.fish" >> ~/.config/fish/config.fish
 
 # npm
-ENV NODE_VERSION 9.7.1
+ENV NODE_VERSION 9.8.0
 RUN cp -f ~/.nvm/nvm.sh ~/.nvm/nvm-tmp.sh && \
     echo "nvm install v$NODE_VERSION" >> ~/.nvm/nvm-tmp.sh && \
     echo "nvm alias 9 $NODE_VERSION" >> ~/.nvm/nvm-tmp.sh && \
@@ -44,7 +44,7 @@ RUN bash -lc "curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | apt-key add -"
     bash -lc "echo 'deb https://dl.yarnpkg.com/debian/ stable main' | tee /etc/apt/sources.list.d/yarn.list" && \
     apt-get install -y apt-transport-https
 
-RUN apt-get update && apt-get install -y yarn
+RUN apt-get update && apt-get install --no-install-recommends -y yarn
 RUN /bin/bash -lc 'npm install -g yarn'
 
 # RUN yarn config set registr https://registry.npm.taobao.org
@@ -58,7 +58,7 @@ RUN /bin/bash -lc 'yrm use taobao'
 RUN /bin/bash -lc 'yarn global add npm'
 RUN /bin/bash -lc 'yarn global add node-gyp'
 
-RUN /bin/bash -lc 'yarn global add node-inspector'
+# RUN /bin/bash -lc 'yarn global add node-inspector'
 
 # RUN /bin/bash -lc 'yarn global add yarn-upgrade-all'
 # RUN /bin/bash -lc 'yarn global add pnpm npm-check'
