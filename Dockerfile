@@ -31,8 +31,8 @@ RUN fish -lc "fisher edc/bass nvm"
 ENV NODE_VERSION 10.1.0
 RUN cp -f ~/.nvm/nvm.sh ~/.nvm/nvm-tmp.sh && \
     echo "nvm install v$NODE_VERSION" >> ~/.nvm/nvm-tmp.sh && \
-    echo "nvm alias 9 $NODE_VERSION" >> ~/.nvm/nvm-tmp.sh && \
-    echo "nvm alias default 9" >> ~/.nvm/nvm-tmp.sh && \
+    echo "nvm alias 10 $NODE_VERSION" >> ~/.nvm/nvm-tmp.sh && \
+    echo "nvm alias default 10" >> ~/.nvm/nvm-tmp.sh && \
     echo "nvm use default" >> ~/.nvm/nvm-tmp.sh && \
     sh ~/.nvm/nvm-tmp.sh && \
     rm ~/.nvm/nvm-tmp.sh && \
