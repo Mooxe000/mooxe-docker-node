@@ -60,7 +60,6 @@ RUN /bin/bash -lc 'yarn global add node-gyp'
 
 # RUN /bin/bash -lc 'yarn global add node-inspector'
 
-# RUN /bin/bash -lc 'yarn global add yarn-upgrade-all'
 # RUN /bin/bash -lc 'yarn global add pnpm npm-check'
 
 RUN /bin/bash -lc 'yarn global add coffeescript'
@@ -70,7 +69,7 @@ RUN /bin/bash -lc 'yarn global add coffeescript'
 
 RUN /bin/bash -lc 'yarn global add supervisor nodemon forever pm2'
 RUN /bin/bash -lc 'yarn global add serve http-server'
-RUN /bin/bash -lc 'yarn global add json-server'
+# RUN /bin/bash -lc 'yarn global add json-server'
+RUN /bin/bash -lc 'yarn global add lerna autod'
 
-# RUN /bin/bash -lc 'yarn global add lerna'
 # RUN /bin/bash -lc 'yarn global add now'
