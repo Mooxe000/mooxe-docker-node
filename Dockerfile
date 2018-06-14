@@ -28,7 +28,7 @@ RUN fish -lc "fisher edc/bass nvm"
     # echo ". ~/.config/fish/nvm-wrapper/nvm.fish" >> ~/.config/fish/config.fish
 
 # npm
-ENV NODE_VERSION 10.3.0
+ENV NODE_VERSION 10.4.1
 RUN cp -f ~/.nvm/nvm.sh ~/.nvm/nvm-tmp.sh && \
     echo "nvm install v$NODE_VERSION" >> ~/.nvm/nvm-tmp.sh && \
     echo "nvm alias 10 $NODE_VERSION" >> ~/.nvm/nvm-tmp.sh && \
