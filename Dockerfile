@@ -28,7 +28,7 @@ RUN fish -lc "fisher edc/bass nvm"
     # echo ". ~/.config/fish/nvm-wrapper/nvm.fish" >> ~/.config/fish/config.fish
 
 # npm
-ENV NODE_VERSION 10.5.0
+ENV NODE_VERSION 10.6.0
 RUN cp -f ~/.nvm/nvm.sh ~/.nvm/nvm-tmp.sh && \
     echo "nvm install v$NODE_VERSION" >> ~/.nvm/nvm-tmp.sh && \
     echo "nvm alias 10 $NODE_VERSION" >> ~/.nvm/nvm-tmp.sh && \
@@ -53,7 +53,7 @@ RUN /bin/bash -lc 'npm install -g yarn'
     #   --registry=https://registry.npm.taobao.org'
 
 RUN /bin/bash -lc 'yarn global add yrm'
-RUN /bin/bash -lc 'yrm use yarn'
+RUN /bin/bash -lc 'yrm use taobao'
 
 RUN /bin/bash -lc 'yarn global add npm'
 RUN /bin/bash -lc 'yarn global add node-gyp'
