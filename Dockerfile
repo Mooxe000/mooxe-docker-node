@@ -47,19 +47,34 @@ RUN bash -lc "curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | apt-key add -"
 RUN apt-get update && apt-get install --no-install-recommends -y yarn
 RUN /bin/bash -lc 'npm install -g yarn'
 
-# RUN yarn config set registr https://registry.npm.taobao.org
+# RUN yarn config set registry https://registry.npm.taobao.org
 # global package
 # RUN /bin/bash -lc 'npm install -g cnpm \
     #   --registry=https://registry.npm.taobao.org'
 
+# -- npm root -g
+# -- yarn global bin
+# -- yarn global dir
+# NODE_PATH
+# PATH
+
+# RUN /bin/bash -lc "yarn config set prefix $(npm root -g)/../../"
+
+# -- --global-folder
+# RUN echo "--global-folder \"$(bash -lc 'npm root -g')/../\"" \
+#     >> ~/.yarnrc
+
 RUN /bin/bash -lc 'yarn global add yrm'
 RUN /bin/bash -lc 'yrm use taobao'
 
-RUN /bin/bash -lc 'yarn global add npm'
+# -- --global-folder
+# RUN echo "--global-folder \"$(bash -lc 'npm root -g')/../\"" \
+#     >> ~/.yarnrc
+
+RUN /bin/bash -lc 'yarn global add npm yarn'
 RUN /bin/bash -lc 'yarn global add node-gyp'
 
 # RUN /bin/bash -lc 'yarn global add node-inspector'
-
 # RUN /bin/bash -lc 'yarn global add pnpm npm-check'
 
 RUN /bin/bash -lc 'yarn global add coffeescript'
@@ -69,7 +84,7 @@ RUN /bin/bash -lc 'yarn global add coffeescript'
 
 RUN /bin/bash -lc 'yarn global add supervisor nodemon forever pm2'
 RUN /bin/bash -lc 'yarn global add serve http-server'
-# RUN /bin/bash -lc 'yarn global add json-server'
 RUN /bin/bash -lc 'yarn global add lerna autod'
 
+# RUN /bin/bash -lc 'yarn global add json-server'
 # RUN /bin/bash -lc 'yarn global add now'
