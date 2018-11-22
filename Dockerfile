@@ -5,11 +5,10 @@ MAINTAINER FooTearth "footearth@gmail.com"
 WORKDIR /root
 
 # update
-RUN apt-get update && \
-    apt-get upgrade -y && \
-    apt-get autoremove -y
+RUN apt-fast update && \
+    apt-fast upgrade -y
 
-RUN apt-get install -y make g++
+RUN apt-fast install -y make g++
 
 # nvm
 ENV NVM_VERSION 0.33.11
@@ -28,7 +27,7 @@ RUN fish -lc "fisher edc/bass nvm"
     # echo ". ~/.config/fish/nvm-wrapper/nvm.fish" >> ~/.config/fish/config.fish
 
 # npm
-ENV NODE_VERSION 10.11.0
+ENV NODE_VERSION 11.2.0
 RUN cp -f ~/.nvm/nvm.sh ~/.nvm/nvm-tmp.sh && \
     echo "nvm install v$NODE_VERSION" >> ~/.nvm/nvm-tmp.sh && \
     echo "nvm alias 10 $NODE_VERSION" >> ~/.nvm/nvm-tmp.sh && \
@@ -42,9 +41,15 @@ RUN cp -f ~/.nvm/nvm.sh ~/.nvm/nvm-tmp.sh && \
 # Yarn
 RUN bash -lc "curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | apt-key add -" && \
     bash -lc "echo 'deb https://dl.yarnpkg.com/debian/ stable main' | tee /etc/apt/sources.list.d/yarn.list" && \
-    apt-get install -y apt-transport-https
+    apt-fast install -y apt-transport-https
 
-RUN apt-get update && apt-get install --no-install-recommends -y yarn
+RUN apt-fast update && apt-fast install --no-install-recommends -y yarn
+
+RUN \
+	apt-fast autoremove -y && \
+	apt-fast autoclean && \
+	rm -rf /var/lib/apt/lists/*
+
 RUN /bin/bash -lc 'npm install -g yarn'
 
 # RUN yarn config set registry https://registry.npm.taobao.org
