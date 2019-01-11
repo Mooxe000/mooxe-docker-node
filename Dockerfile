@@ -11,7 +11,7 @@ RUN apt-fast update && \
 RUN apt-fast install -y make g++
 
 # nvm
-ENV NVM_VERSION 0.33.11
+ENV NVM_VERSION 0.34.0
 # nvm - zsh spport
 RUN curl -o- https://raw.githubusercontent.com/creationix/nvm/v${NVM_VERSION}/install.sh | bash && \
     echo ". ~/.nvm/nvm.sh" >> ~/.zshrc
@@ -27,7 +27,7 @@ RUN fish -lc "fisher edc/bass nvm"
     # echo ". ~/.config/fish/nvm-wrapper/nvm.fish" >> ~/.config/fish/config.fish
 
 # npm
-ENV NODE_VERSION 11.2.0
+ENV NODE_VERSION 11.6.0
 RUN cp -f ~/.nvm/nvm.sh ~/.nvm/nvm-tmp.sh && \
     echo "nvm install v$NODE_VERSION" >> ~/.nvm/nvm-tmp.sh && \
     echo "nvm alias 10 $NODE_VERSION" >> ~/.nvm/nvm-tmp.sh && \
