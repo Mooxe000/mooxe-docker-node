@@ -27,11 +27,11 @@ RUN fish -lc "fisher edc/bass nvm"
     # echo ". ~/.config/fish/nvm-wrapper/nvm.fish" >> ~/.config/fish/config.fish
 
 # npm
-ENV NODE_VERSION 11.6.0
+ENV NODE_VERSION 12.4.0
 RUN cp -f ~/.nvm/nvm.sh ~/.nvm/nvm-tmp.sh && \
     echo "nvm install v$NODE_VERSION" >> ~/.nvm/nvm-tmp.sh && \
-    echo "nvm alias 10 $NODE_VERSION" >> ~/.nvm/nvm-tmp.sh && \
-    echo "nvm alias default 10" >> ~/.nvm/nvm-tmp.sh && \
+    echo "nvm alias 12 $NODE_VERSION" >> ~/.nvm/nvm-tmp.sh && \
+    echo "nvm alias default 12" >> ~/.nvm/nvm-tmp.sh && \
     echo "nvm use default" >> ~/.nvm/nvm-tmp.sh && \
     sh ~/.nvm/nvm-tmp.sh && \
     rm ~/.nvm/nvm-tmp.sh && \
@@ -46,9 +46,9 @@ RUN bash -lc "curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | apt-key add -"
 RUN apt-fast update && apt-fast install --no-install-recommends -y yarn
 
 RUN \
-	apt-fast autoremove -y && \
-	apt-fast autoclean && \
-	rm -rf /var/lib/apt/lists/*
+    apt-fast autoremove -y && \
+    apt-fast autoclean && \
+    rm -rf /var/lib/apt/lists/*
 
 RUN /bin/bash -lc 'npm install -g yarn'
 
@@ -93,3 +93,5 @@ RUN /bin/bash -lc 'yarn global add lerna autod'
 
 # RUN /bin/bash -lc 'yarn global add json-server'
 # RUN /bin/bash -lc 'yarn global add now'
+
+RUN echo "unsafe-perm = true" >> ~/.npmrc
