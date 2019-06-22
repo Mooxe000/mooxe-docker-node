@@ -17,7 +17,8 @@ RUN curl -o- https://raw.githubusercontent.com/creationix/nvm/v${NVM_VERSION}/in
     echo ". ~/.nvm/nvm.sh" >> ~/.zshrc
 
     # nvm - fish upport
-RUN fish -lc "fisher edc/bass nvm"
+# RUN fish -lc "fisher edc/bass nvm"
+RUN fish -lc "omf install edc/bass nvm"
 # RUN echo "\
 # function nvm\n\
 #   bass source ~/.nvm/nvm.sh --no-use ';' nvm \$argv\n\
