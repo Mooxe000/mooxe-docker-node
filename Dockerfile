@@ -28,7 +28,7 @@ RUN fish -lc "omf install edc/bass nvm"
     # echo ". ~/.config/fish/nvm-wrapper/nvm.fish" >> ~/.config/fish/config.fish
 
 # npm
-ENV NODE_VERSION 12.4.0
+ENV NODE_VERSION 12.5.0
 RUN cp -f ~/.nvm/nvm.sh ~/.nvm/nvm-tmp.sh && \
     echo "nvm install v$NODE_VERSION" >> ~/.nvm/nvm-tmp.sh && \
     echo "nvm alias 12 $NODE_VERSION" >> ~/.nvm/nvm-tmp.sh && \

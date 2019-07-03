@@ -110,7 +110,7 @@ def nvm_fish_wrapper_get():
 
   run_commander(commander)
 
- def nvm_support_fish():
+def nvm_support_fish():
   line_str = ". {path_home}/.config/fish/nvm-wrapper/nvm.fish"
   line_str = line_str.format(
     path_home = _path_['home']
