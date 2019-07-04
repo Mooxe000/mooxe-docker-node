@@ -33,25 +33,26 @@ RUN cp -f ~/.nvm/nvm.sh ~/.nvm/nvm-tmp.sh && \
     echo "nvm install v$NODE_VERSION" >> ~/.nvm/nvm-tmp.sh && \
     echo "nvm alias 12 $NODE_VERSION" >> ~/.nvm/nvm-tmp.sh && \
     echo "nvm alias default 12" >> ~/.nvm/nvm-tmp.sh && \
-    echo "nvm use default" >> ~/.nvm/nvm-tmp.sh && \
     sh ~/.nvm/nvm-tmp.sh && \
     rm ~/.nvm/nvm-tmp.sh && \
     cp /etc/profile /etc/profile.bak && \
-    echo '. /root/.nvm/nvm.sh' >> /etc/profile
+    echo '. ~/.nvm/nvm.sh' >> /etc/profile
 
 # Yarn
 RUN bash -lc "curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | apt-key add -" && \
     bash -lc "echo 'deb https://dl.yarnpkg.com/debian/ stable main' | tee /etc/apt/sources.list.d/yarn.list" && \
     apt-fast install -y apt-transport-https
 
-RUN apt-fast update && apt-fast install --no-install-recommends -y yarn
+# RUN apt-fast update && apt-fast install --no-install-recommends -y yarn
 
-RUN \
-    apt-fast autoremove -y && \
-    apt-fast autoclean && \
-    rm -rf /var/lib/apt/lists/*
+# RUN \
+#     apt-fast autoremove -y && \
+#     apt-fast autoclean && \
+#     rm -rf /var/lib/apt/lists/*
 
-RUN /bin/bash -lc 'npm install -g yarn'
+# echo "nvm use default" >> ~/.nvm/nvm-tmp.sh && \
+RUN /bin/bash -lc 'nvm use default'
+RUN /bin/bash -lc 'npm i -g yarn'
 
 # RUN yarn config set registry https://registry.npm.taobao.org
 # global package
