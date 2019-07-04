@@ -7,7 +7,7 @@ NVM_VERSION='0.34.0'
 curl -o- https://raw.githubusercontent.com/creationix/nvm/v${NVM_VERSION}/install.sh | bash && \
 echo ". ~/.nvm/nvm.sh" >> ~/.zshrc
 
-fish -lc "omf install edc/bass nvm"
+fish -lc "omf i bass nvm"
 
 NODE_VERSION='12.5.0'
 
@@ -20,3 +20,7 @@ sh ~/.nvm/nvm-tmp.sh && \
 rm ~/.nvm/nvm-tmp.sh && \
 cp /etc/profile /etc/profile.bak && \
 echo '. /root/.nvm/nvm.sh' >> /etc/profile
+
+/bin/bash -lc 'npm i -g yarn'
+/bin/bash -lc 'yarn global add yrm'
+/bin/bash -lc 'yrm use taobao'
