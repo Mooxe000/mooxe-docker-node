@@ -33,7 +33,7 @@ RUN cp -f ~/.nvm/nvm.sh ~/.nvm/nvm-tmp.sh && \
     echo "nvm install v$NODE_VERSION" >> ~/.nvm/nvm-tmp.sh && \
     echo "nvm alias 12 $NODE_VERSION" >> ~/.nvm/nvm-tmp.sh && \
     echo "nvm alias default 12" >> ~/.nvm/nvm-tmp.sh && \
-    sh ~/.nvm/nvm-tmp.sh && \
+    bash ~/.nvm/nvm-tmp.sh && \
     rm ~/.nvm/nvm-tmp.sh && \
     cp /etc/profile /etc/profile.bak && \
     echo '. ~/.nvm/nvm.sh' >> /etc/profile
