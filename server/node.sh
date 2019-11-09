@@ -2,14 +2,14 @@
 
 apt-fast install -y make g++
 
-NVM_VERSION='0.34.0'
+NVM_VERSION='0.35.1'
 
 curl -o- https://raw.githubusercontent.com/creationix/nvm/v${NVM_VERSION}/install.sh | bash && \
 echo ". ~/.nvm/nvm.sh" >> ~/.zshrc
 
 fish -lc "omf i bass nvm"
 
-NODE_VERSION='12.9.0'
+NODE_VERSION='13.1.0'
 
 cp -f ~/.nvm/nvm.sh ~/.nvm/nvm-tmp.sh && \
 echo "nvm install v${NODE_VERSION}" >> ~/.nvm/nvm-tmp.sh && \
