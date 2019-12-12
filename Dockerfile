@@ -13,7 +13,7 @@ RUN apt-fast install -y make g++
 # nvm
 ENV NVM_VERSION 0.35.1
 # nvm - zsh spport
-RUN curl -o- https://raw.githubusercontent.com/creationix/nvm/v${NVM_VERSION}/install.sh | bash && \
+RUN curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v${NVM_VERSION}/install.sh | bash && \
     echo ". ~/.nvm/nvm.sh" >> ~/.zshrc
 
     # nvm - fish upport
@@ -28,10 +28,13 @@ RUN fish -lc "omf i bass nvm"
     # echo ". ~/.config/fish/nvm-wrapper/nvm.fish" >> ~/.config/fish/config.fish
 
 # npm
-ENV NODE_VERSION 13.1.0
+ENV NODE_VERSION_LTS 12.13.1
+ENV NODE_VERSION 13.3.0
 RUN cp -f ~/.nvm/nvm.sh ~/.nvm/nvm-tmp.sh && \
+    echo "nvm install v$NODE_VERSION_LTS" >> ~/.nvm/nvm-tmp.sh && \
     echo "nvm install v$NODE_VERSION" >> ~/.nvm/nvm-tmp.sh && \
-    echo "nvm alias 12 $NODE_VERSION" >> ~/.nvm/nvm-tmp.sh && \
+    echo "nvm alias 12 $NODE_VERSION_LTS" >> ~/.nvm/nvm-tmp.sh && \
+    echo "nvm alias 13 $NODE_VERSION" >> ~/.nvm/nvm-tmp.sh && \
     echo "nvm alias default 12" >> ~/.nvm/nvm-tmp.sh && \
     bash ~/.nvm/nvm-tmp.sh && \
     rm ~/.nvm/nvm-tmp.sh && \
