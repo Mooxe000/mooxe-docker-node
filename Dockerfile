@@ -11,7 +11,7 @@ RUN apt-fast update && \
 RUN apt-fast install -y make g++
 
 # nvm
-ENV NVM_VERSION 0.35.1
+ENV NVM_VERSION 0.35.2
 # nvm - zsh spport
 RUN curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v${NVM_VERSION}/install.sh | bash && \
     echo ". ~/.nvm/nvm.sh" >> ~/.zshrc
@@ -28,8 +28,8 @@ RUN fish -lc "omf i bass nvm"
     # echo ". ~/.config/fish/nvm-wrapper/nvm.fish" >> ~/.config/fish/config.fish
 
 # npm
-ENV NODE_VERSION_LTS 12.13.1
-ENV NODE_VERSION 13.3.0
+ENV NODE_VERSION_LTS 12.14.0
+ENV NODE_VERSION 13.5.0
 RUN cp -f ~/.nvm/nvm.sh ~/.nvm/nvm-tmp.sh && \
     echo "nvm install v$NODE_VERSION_LTS" >> ~/.nvm/nvm-tmp.sh && \
     echo "nvm install v$NODE_VERSION" >> ~/.nvm/nvm-tmp.sh && \

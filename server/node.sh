@@ -2,15 +2,15 @@
 
 apt-fast install -y make g++
 
-NVM_VERSION='0.35.1'
+NVM_VERSION='0.35.2'
 
 curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v${NVM_VERSION}/install.sh | bash && \
 echo ". ~/.nvm/nvm.sh" >> ~/.zshrc
 
 fish -lc "omf i bass nvm"
 
-NODE_VERSION_LTS=12.13.1
-NODE_VERSION=13.3.0
+NODE_VERSION_LTS=12.14.1
+NODE_VERSION=13.5.0
 
 cp -f ~/.nvm/nvm.sh ~/.nvm/nvm-tmp.sh && \
 echo "nvm install v${NODE_VERSION_LTS}" >> ~/.nvm/nvm-tmp.sh && \
