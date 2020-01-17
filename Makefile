@@ -1,8 +1,18 @@
 build:
-	docker build -t mooxe/node .
+	docker build \
+		--build-arg http_proxy=$$http_proxy \
+		--build-arg https_proxy=$$https_proxy \
+		--build-arg HTTP_PROXY=$$HTTP_PROXY \
+		--build-arg HTTPS_PROXY=$$HTTPS_PROXY \
+		-t mooxe/node .
 
 rebuild:
-	docker build --no-cache -t mooxe/node .
+	docker build --no-cache \
+		--build-arg http_proxy=$$http_proxy \
+		--build-arg https_proxy=$$https_proxy \
+		--build-arg HTTP_PROXY=$$HTTP_PROXY \
+		--build-arg HTTPS_PROXY=$$HTTPS_PROXY \
+		-t mooxe/node .
 
 in:
 	docker run --rm -ti \
