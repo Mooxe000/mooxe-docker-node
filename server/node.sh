@@ -9,8 +9,8 @@ echo ". ~/.nvm/nvm.sh" >> ~/.zshrc
 
 fish -lc "omf i bass nvm"
 
-NODE_VERSION_LTS=12.14.1
-NODE_VERSION=13.5.0
+NODE_VERSION_LTS=12.16.0
+NODE_VERSION=13.8.0
 
 cp -f ~/.nvm/nvm.sh ~/.nvm/nvm-tmp.sh && \
 echo "nvm install v${NODE_VERSION_LTS}" >> ~/.nvm/nvm-tmp.sh && \
