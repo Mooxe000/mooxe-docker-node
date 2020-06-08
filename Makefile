@@ -1,5 +1,5 @@
 build:
-	docker build \
+	buildah bud --layers \
 		--build-arg http_proxy=$$http_proxy \
 		--build-arg https_proxy=$$https_proxy \
 		--build-arg HTTP_PROXY=$$HTTP_PROXY \
@@ -7,7 +7,7 @@ build:
 		-t mooxe/node .
 
 rebuild:
-	docker build --no-cache \
+	buildah bud --no-cache \
 		--build-arg http_proxy=$$http_proxy \
 		--build-arg https_proxy=$$https_proxy \
 		--build-arg HTTP_PROXY=$$HTTP_PROXY \
@@ -15,10 +15,10 @@ rebuild:
 		-t mooxe/node .
 
 in:
-	docker run --rm -ti \
+	podman run --rm -ti \
 		--name=node \
 		-v $$(pwd):/root/node \
 			mooxe/node /bin/bash
 
 push:
-	docker push mooxe/node
+	podman push mooxe/node
