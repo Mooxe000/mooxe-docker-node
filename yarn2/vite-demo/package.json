@@ -1,0 +1,25 @@
+{
+  "name": "react-vite",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "scripts": {
+    "dev": "vite && tcm src",
+    "build": "vite build",
+    "tsm": "tsm src/ -o src/typed/scss -w "
+  },
+  "dependencies": {
+    "@pika/react": "^16.13.1",
+    "@pika/react-dom": "^16.13.1"
+  },
+  "devDependencies": {
+    "@types/node-sass": "^4.11.1",
+    "@types/react": "^16.9.41",
+    "@types/react-dom": "^16.9.8",
+    "node-sass": "^4.14.1",
+    "sass": "^1.26.9",
+    "typed-scss-modules": "^1.3.0",
+    "vite": "^1.0.0-beta.8",
+    "vite-plugin-react": "^3.0.1"
+  }
+}

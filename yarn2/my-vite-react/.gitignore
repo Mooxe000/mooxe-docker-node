@@ -1,0 +1,15 @@
+node_modules
+.DS_Store
+dist
+*.local
+
+/.yarn/*
+/yarn.lock
+/yarn-error
+
+# Swap the comments on the following lines if you don't wish to use zero-installs
+# Documentation here: https://yarnpkg.com/features/zero-installs
+/.pnp.*
+/.parcel-cache
+/.yarnrc
+/.yarnrc.yml

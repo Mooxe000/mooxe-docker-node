@@ -17,6 +17,8 @@ rebuild:
 in:
 	podman run --rm -ti \
 		--name=node \
+		-p 3000:3000 \
+		-p 8080:8080 \
 		-v $$(pwd):/root/node \
 			mooxe/node /bin/bash
 

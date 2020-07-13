@@ -1,0 +1,51 @@
+{
+  "name": "my-parcel-next",
+  "scripts": {
+    "yarn:version": "make yarn_version",
+    "yarn:install": "make yarn_install",
+    "yarn:vscode": "make yarn_vscode",
+    "yarn:all": "make yarn_all",
+    "dev": "make dev_parcel",
+    "build": "make build_parcel",
+    "serve": "make serve_parcel",
+    "clean:before": "make clean_before",
+    "clean": "make clean",
+    "clean:after": "make clean_after",
+    "clean:all": "make clean_all"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.0.0",
+    "@parcel/bundler-default": "^2.0.0-alpha.3",
+    "@parcel/core": "^2.0.0-alpha.3.1",
+    "@parcel/namer-default": "^2.0.0-alpha.3",
+    "@parcel/optimizer-cssnano": "^2.0.0-alpha.3",
+    "@parcel/optimizer-htmlnano": "^2.0.0-alpha.3",
+    "@parcel/optimizer-terser": "^2.0.0-alpha.3",
+    "@parcel/packager-css": "^2.0.0-alpha.3",
+    "@parcel/packager-html": "^2.0.0-alpha.3",
+    "@parcel/packager-js": "^2.0.0-alpha.3",
+    "@parcel/reporter-bundle-analyzer": "^2.0.0-nightly.1694",
+    "@parcel/reporter-bundle-buddy": "^2.0.0-nightly.1902",
+    "@parcel/reporter-cli": "^2.0.0-alpha.3",
+    "@parcel/reporter-dev-server": "^2.0.0-alpha.3",
+    "@parcel/resolver-default": "^2.0.0-alpha.3",
+    "@parcel/runtime-browser-hmr": "^2.0.0-alpha.3",
+    "@parcel/runtime-js": "^2.0.0-alpha.3",
+    "@parcel/runtime-react-refresh": "^2.0.0-alpha.3",
+    "@parcel/transformer-babel": "^2.0.0-alpha.3",
+    "@parcel/transformer-css": "^2.0.0-alpha.3",
+    "@parcel/transformer-html": "^2.0.0-alpha.3",
+    "@parcel/transformer-js": "^2.0.0-alpha.3",
+    "@parcel/transformer-postcss": "^2.0.0-alpha.3",
+    "@parcel/transformer-posthtml": "^2.0.0-alpha.3",
+    "@parcel/transformer-react-refresh-babel": "^2.0.0-alpha.3",
+    "@parcel/transformer-react-refresh-wrap": "^2.0.0-alpha.3",
+    "parcel": "nightly",
+    "rimraf": "^3.0.2",
+    "serve": "^11.3.2"
+  },
+  "dependencies": {
+    "react": "^16.13.1",
+    "react-dom": "^16.13.1"
+  }
+}
