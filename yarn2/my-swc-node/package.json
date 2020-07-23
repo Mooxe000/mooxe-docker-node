@@ -1,0 +1,12 @@
+{
+  "name": "my-swc-node",
+  "scripts": {
+    "build": "yarn swc ./source -d ./src",
+    "dev": "yarn node ./src/index.js"
+  },
+  "dependencies": {
+    "@swc/cli": "^0.1.26",
+    "@swc/core": "^1.2.7",
+    "fp-ts": "^2.7.0"
+  }
+}
