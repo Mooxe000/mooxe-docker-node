@@ -4,7 +4,7 @@
     "clean": "rimraf src test",
     "build": "yarn swc ./source/src -d ./src && yarn swc ./source/test -d ./test/__tests__",
     "dev": "yarn node ./src/index.js",
-    "test": "jest"
+    "test": "yarn build && jest"
   },
   "dependencies": {
     "fp-ts": "^2.7.0"
