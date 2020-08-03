@@ -1,3 +1,8 @@
+import * as fc from 'fast-check'
+import faker from 'faker'
+
+// fc.configureGlobal({ numRuns: 10 })
+
 import {
   Option
 , none
@@ -5,12 +10,11 @@ import {
 , fromNullable
 } from 'fp-ts/lib/Option'
 
-
 import { IO } from 'fp-ts/lib/IO'
 
 import { Either, tryCatch } from 'fp-ts/lib/Either'
 
-const random: IO<number> = () => Math.random()
+const random: IO<number> = () => faker.random.number()
 
 // function getItem(key: string): IO<Option<string>> {
 //   return () => fromNullable(localStorage.getItem(key))
@@ -41,6 +45,12 @@ function parse(s: string)
   )
 }
 
+function unique(arr: T) {
+  return arr.filter(
+    (c, i, a) => a.indexOf(c, 0) === i
+  )
+}
+
 describe('Option', () => {
 
   it('Option', () => {
@@ -54,57 +64,101 @@ describe('Option', () => {
     .toEqual( 199 )
     expect( none._tag )
     .toEqual( 'None' )
+  })
 
-    expect(
-      findIndex(
-        [1, 2, 3]
-      , (i) => i === 2
-      )
-    )
-    .toEqual(
-      some(1)
-    )
-    expect(
-      findIndex(
-        [1, 2, 3]
-      , (e) => e === 4
-      )
-    )
-    .toEqual(
-      none
-    )
+  it('find_Some', () => {
 
-    expect(
-      find(
-        [1, 2, 3]
-      , (e) => e > 1
-      )
-    )
-    .toEqual(
-      some(2)
-    )
-    expect(
-      find(
-        [1, 2, 3]
-      , (e) => e === 4
-      )
-    )
-    .toEqual(
-      none
-    )
+    fc.assert( fc.property(
+      fc.array( fc.integer(), 1, 10 )
+    ,
+      data => {
+        const _data = unique(data)
+        const j = 
+          faker.random.number({
+            min: 0
+          , max: _data.length - 1
+          })
 
-    console.log(
-      JSON.stringify(
-        {
-          a: 'b'
+        expect(
+          findIndex(
+            _data
+          , i => i === _data[j]
+          )
+        )
+        .toEqual(
+          some(j)
+        )
+
+        expect(
+          find(
+            _data
+          , i => i === _data[j]
+          )
+        )
+        .toEqual(
+          some(_data[j])
+        )
+      }
+    ))
+
+  })
+
+  it('find_None', () => {
+
+    fc.assert( fc.property(
+      fc.array( fc.integer(), 1, 10 )
+    ,
+      data => {
+        const _data = unique(data)
+        const getN = () => {
+          const n = faker.random.number()
+          if (n in _data) {
+            getN()
+          }
         }
-      , null, 2
-      )
-    )
+
+        expect(
+          findIndex(
+            _data
+          , i => i === getN()
+          )
+        )
+        .toEqual(
+          none
+        )
+
+        expect(
+          find(
+            _data
+          , i => i === getN()
+          )
+        )
+        .toEqual(
+          none
+        )
+
+      }
+    ))
+  })
+
+    // console.log(
+    //   JSON.stringify(
+    //     {
+    //       a: 'b'
+    //     }
+    //   , null, 2
+    //   )
+    // )
+
+  it('Either', () => {
+
     console.log(
       parse('{ "a": "b" }')
     )
 
+    console.log(
+      parse('{ a: "b" }')
+    )
   })
 
 })
