@@ -1,5 +1,6 @@
 {
   "name": "my-swc-node",
+  "version": "0.0.0",
   "scripts": {
     "clean": "rimraf src test",
     "build": "yarn swc ./source/src -d ./src && yarn swc ./source/test -d ./test/__tests__",

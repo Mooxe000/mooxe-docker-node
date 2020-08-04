@@ -14,7 +14,8 @@ RUN apt-fast install -y make g++
 ENV NVM_VERSION 0.35.3
 # nvm - zsh spport
 RUN curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v${NVM_VERSION}/install.sh | bash && \
-    echo ". ~/.nvm/nvm.sh" >> ~/.zshrc
+    echo 'export NVM_DIR="$([ -z "${XDG_CONFIG_HOME-}" ] && printf %s "${HOME}/.nvm" || printf %s "${XDG_CONFIG_HOME}/nvm")"' >> ~/.profile && \
+    echo '[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"' >> ~/.profile
 
     # nvm - fish upport
 # RUN fish -lc "fisher edc/bass nvm"
@@ -28,8 +29,8 @@ RUN fish -lc "omf i bass nvm"
     # echo ". ~/.config/fish/nvm-wrapper/nvm.fish" >> ~/.config/fish/config.fish
 
 # npm
-ENV NODE_VERSION_LTS 12.18.2
-ENV NODE_VERSION 14.5.0
+ENV NODE_VERSION_LTS 12.18.3
+ENV NODE_VERSION 14.7.0
 RUN cp -f ~/.nvm/nvm.sh ~/.nvm/nvm-tmp.sh && \
     echo "nvm install v$NODE_VERSION_LTS" >> ~/.nvm/nvm-tmp.sh && \
     echo "nvm install v$NODE_VERSION" >> ~/.nvm/nvm-tmp.sh && \

@@ -13,6 +13,7 @@ import {
 import { IO } from 'fp-ts/lib/IO'
 
 import { Either, tryCatch } from 'fp-ts/lib/Either'
+import * as E from 'fp-ts/lib/Either'
 
 const random: IO<number> = () => faker.random.number()
 
@@ -141,24 +142,39 @@ describe('Option', () => {
     ))
   })
 
-    // console.log(
-    //   JSON.stringify(
-    //     {
-    //       a: 'b'
-    //     }
-    //   , null, 2
-    //   )
-    // )
-
   it('Either', () => {
 
-    console.log(
-      parse('{ "a": "b" }')
+    const jsonStr = {
+      obj: {
+        a: 'b'
+      }
+    , left: '{ a: "b" }'
+    , right: '{ "a": "b" }'
+    }
+
+    expect(
+      parse(jsonStr.right)
+    )
+    .toEqual(
+      E.right(jsonStr.obj)
     )
 
-    console.log(
-      parse('{ a: "b" }')
+    const parseE = {}
+
+    try {
+      JSON.parse(jsonStr.left)
+    }
+    catch (e) {
+      parseE = E.left(new Error(e))
+    }
+
+    expect(
+      parseE
     )
+    .toEqual(
+      parse(jsonStr.left)
+    )
+
   })
 
 })
