@@ -13,9 +13,14 @@ import {
 import { IO } from 'fp-ts/lib/IO'
 
 import { Either, tryCatch } from 'fp-ts/lib/Either'
+
 import * as E from 'fp-ts/lib/Either'
 
 import fs from 'fs'
+
+// import * as Task from 'fp-ts/lib/Task'
+// import process from 'process'
+// import { createInterface } from 'readline'
 
 const random: IO<number> = () => faker.random.number()
 
@@ -61,6 +66,22 @@ function readFileSync(path: string)
   , reason => new Error(String(reason))
   )
 }
+
+// const read: Task<string> = () =>
+
+//   new Promise<string>(resolve => {
+
+//     const rl = createInterface({
+//       input: process.stdin,
+//       output: process.stdout
+//     })
+
+//     rl.question('', answer => {
+//       rl.close()
+//       resolve(answer)
+//     })
+
+//   })
 
 describe('Option', () => {
 
@@ -169,7 +190,7 @@ describe('Option', () => {
       E.right(jsonStr.obj)
     )
 
-    const parseE = {}
+    let parseE = {}
 
     try {
       JSON.parse(jsonStr.left)
@@ -189,7 +210,7 @@ describe('Option', () => {
 
   it('IOEither', () => {
 
-    const readFileSyncE = {}
+    let readFileSyncE = {}
 
     try {
       fs.readFileSync('./Empty')
