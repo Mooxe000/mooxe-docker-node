@@ -15,6 +15,8 @@ import { IO } from 'fp-ts/lib/IO'
 import { Either, tryCatch } from 'fp-ts/lib/Either'
 import * as E from 'fp-ts/lib/Either'
 
+import fs from 'fs'
+
 const random: IO<number> = () => faker.random.number()
 
 // function getItem(key: string): IO<Option<string>> {
@@ -49,6 +51,14 @@ function parse(s: string)
 function unique(arr: T) {
   return arr.filter(
     (c, i, a) => a.indexOf(c, 0) === i
+  )
+}
+
+function readFileSync(path: string)
+: IOEither<Error, string> {
+  return tryCatch(
+    () => fs.readFileSync(path, 'utf8')
+  , reason => new Error(String(reason))
   )
 }
 
@@ -165,14 +175,34 @@ describe('Option', () => {
       JSON.parse(jsonStr.left)
     }
     catch (e) {
-      parseE = E.left(new Error(e))
+      parseE = new Error(e)
     }
 
     expect(
-      parseE
+      E.left(parseE)
     )
     .toEqual(
       parse(jsonStr.left)
+    )
+
+  })
+
+  it('IOEither', () => {
+
+    const readFileSyncE = {}
+
+    try {
+      fs.readFileSync('./Empty')
+    }
+    catch (e) {
+      readFileSyncE = new Error(e)
+    }
+
+    expect(
+      readFileSync('./Empty')
+    )
+    .toEqual(
+      E.left(readFileSyncE)
     )
 
   })
