@@ -96,6 +96,7 @@ describe('Option', () => {
     .toEqual( 199 )
     expect( none._tag )
     .toEqual( 'None' )
+
   })
 
   it('find_Some', () => {
