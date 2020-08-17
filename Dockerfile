@@ -30,7 +30,7 @@ RUN fish -lc "omf i bass nvm"
 
 # npm
 ENV NODE_VERSION_LTS 12.18.3
-ENV NODE_VERSION 14.7.0
+ENV NODE_VERSION 14.8.0
 RUN cp -f ~/.nvm/nvm.sh ~/.nvm/nvm-tmp.sh && \
     echo "nvm install v$NODE_VERSION_LTS" >> ~/.nvm/nvm-tmp.sh && \
     echo "nvm install v$NODE_VERSION" >> ~/.nvm/nvm-tmp.sh && \
