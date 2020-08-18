@@ -3,10 +3,6 @@ interface Eq<A> {
   readonly equals: (x: A, y: A) => boolean
 }
 
-const eqNumber: Eq<number> = {
-  equals: (x, y) => x === y
-}
-
 function elem<A>(E: Eq<A>)
 : (a: A, as: Array<A>) => boolean
 {
@@ -39,6 +35,10 @@ type Point = {
 // }
 
 import { getStructEq } from 'fp-ts/lib/Eq'
+
+const eqNumber: Eq<number> = {
+  equals: (x, y) => x === y
+}
 
 const eqPoint: Eq<Point> = getStructEq({
   x: eqNumber
@@ -82,6 +82,51 @@ describe('Eq', () => {
   })
 
   it('eqVector', () => {
+
+    expect(
+      eqPoint.equals(
+        {
+          x: 1
+        , y: 2
+        }
+      , {
+          x: 1
+        , y: 2
+        }
+      )
+    )
+    .toEqual(
+      true
+    )
+
+    expect(
+      eqVector.equals(
+        {
+          from: {
+            x: 1
+          , y: 2
+          }
+        , to: {
+            x: 4
+          , y: 6
+          }
+        }
+      ,
+        {
+          from: {
+            x: 1
+          , y: 2
+          }
+        , to: {
+            x: 4
+          , y: 6
+          }
+        }
+      )
+    )
+    .toEqual(
+      true
+    )
 
   })
 
