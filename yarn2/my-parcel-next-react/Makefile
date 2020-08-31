@@ -28,3 +28,6 @@ clean_after:
 	yarn rimraf ./.yarnrc.yml ./.pnp.js ./.yarn ./yarn.lock ./node_modules
 
 clean_all: clean_before clean clean_after
+
+cleanall: 
+	rm -rf ./dist ./.parcel-cache ./.yarnrc.yml ./.pnp.js ./.yarn ./yarn.lock ./node_modules

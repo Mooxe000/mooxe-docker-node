@@ -30,7 +30,7 @@ RUN fish -lc "omf i bass nvm"
 
 # npm
 ENV NODE_VERSION_LTS 12.18.3
-ENV NODE_VERSION 14.8.0
+ENV NODE_VERSION 14.9.0
 RUN cp -f ~/.nvm/nvm.sh ~/.nvm/nvm-tmp.sh && \
     echo "nvm install v$NODE_VERSION_LTS" >> ~/.nvm/nvm-tmp.sh && \
     echo "nvm install v$NODE_VERSION" >> ~/.nvm/nvm-tmp.sh && \
@@ -75,8 +75,8 @@ RUN /bin/bash -lc 'npm i -g yarn'
 # RUN echo "--global-folder \"$(bash -lc 'npm root -g')/../\"" \
 #     >> ~/.yarnrc
 
-RUN /bin/bash -lc 'yarn global add yrm'
-RUN /bin/bash -lc 'yrm use taobao'
+# RUN /bin/bash -lc 'yarn global add yrm'
+# RUN /bin/bash -lc 'yrm use taobao'
 
 # -- --global-folder
 # RUN echo "--global-folder \"$(bash -lc 'npm root -g')/../\"" \
@@ -88,14 +88,14 @@ RUN /bin/bash -lc 'yarn global add node-gyp'
 # RUN /bin/bash -lc 'yarn global add node-inspector'
 # RUN /bin/bash -lc 'yarn global add pnpm npm-check'
 
-RUN /bin/bash -lc 'yarn global add coffeescript'
+# RUN /bin/bash -lc 'yarn global add coffeescript'
 
 # RUN /bin/bash -lc 'yarn global add rollup gulp-cli'
 # RUN yarn global add harp
 
 RUN /bin/bash -lc 'yarn global add supervisor nodemon forever pm2'
 RUN /bin/bash -lc 'yarn global add serve http-server'
-RUN /bin/bash -lc 'yarn global add lerna autod'
+# RUN /bin/bash -lc 'yarn global add lerna autod'
 
 # RUN /bin/bash -lc 'yarn global add json-server'
 # RUN /bin/bash -lc 'yarn global add now'

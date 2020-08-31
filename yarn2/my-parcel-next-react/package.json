@@ -2,16 +2,14 @@
   "name": "my-parcel-next",
   "scripts": {
     "yarn:version": "make yarn_version",
-    "yarn:install": "make yarn_install",
     "yarn:vscode": "make yarn_vscode",
     "yarn:all": "make yarn_all",
     "dev": "make dev_parcel",
     "build": "make build_parcel",
     "serve": "make serve_parcel",
-    "clean:before": "make clean_before",
+    "preclean": "make clean_before",
     "clean": "make clean",
-    "clean:after": "make clean_after",
-    "clean:all": "make clean_all"
+    "postclean": "make clean_after"
   },
   "devDependencies": {
     "@babel/core": "^7.0.0",
@@ -47,5 +45,6 @@
   "dependencies": {
     "react": "^16.13.1",
     "react-dom": "^16.13.1"
-  }
+  },
+  "version": "0.0.0"
 }
