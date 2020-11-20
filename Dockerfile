@@ -1,6 +1,6 @@
-FROM mooxe/base:dev
+FROM localhost/mooxe/base:dev
 
-MAINTAINER FooTearth "footearth@gmail.com"
+# MAINTAINER FooTearth "footearth@gmail.com"
 
 WORKDIR /root
 
@@ -11,7 +11,7 @@ RUN apt-fast update && \
 RUN apt-fast install -y make g++
 
 # nvm
-ENV NVM_VERSION 0.35.3
+ENV NVM_VERSION 0.37.0
 # nvm - zsh spport
 RUN curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v${NVM_VERSION}/install.sh | bash && \
     echo 'export NVM_DIR="$([ -z "${XDG_CONFIG_HOME-}" ] && printf %s "${HOME}/.nvm" || printf %s "${XDG_CONFIG_HOME}/nvm")"' >> ~/.profile && \
@@ -29,14 +29,14 @@ RUN fish -lc "omf i bass nvm"
     # echo ". ~/.config/fish/nvm-wrapper/nvm.fish" >> ~/.config/fish/config.fish
 
 # npm
-ENV NODE_VERSION_LTS 12.18.3
-ENV NODE_VERSION 14.9.0
+ENV NODE_VERSION_LTS 14.15.1
+ENV NODE_VERSION 15.2.1
 RUN cp -f ~/.nvm/nvm.sh ~/.nvm/nvm-tmp.sh && \
     echo "nvm install v$NODE_VERSION_LTS" >> ~/.nvm/nvm-tmp.sh && \
     echo "nvm install v$NODE_VERSION" >> ~/.nvm/nvm-tmp.sh && \
-    echo "nvm alias 12 $NODE_VERSION_LTS" >> ~/.nvm/nvm-tmp.sh && \
-    echo "nvm alias 14 $NODE_VERSION" >> ~/.nvm/nvm-tmp.sh && \
-    echo "nvm alias default 12" >> ~/.nvm/nvm-tmp.sh && \
+    echo "nvm alias 14 $NODE_VERSION_LTS" >> ~/.nvm/nvm-tmp.sh && \
+    echo "nvm alias 15 $NODE_VERSION" >> ~/.nvm/nvm-tmp.sh && \
+    echo "nvm alias default 14" >> ~/.nvm/nvm-tmp.sh && \
     bash ~/.nvm/nvm-tmp.sh && \
     rm ~/.nvm/nvm-tmp.sh && \
     cp /etc/profile /etc/profile.bak && \

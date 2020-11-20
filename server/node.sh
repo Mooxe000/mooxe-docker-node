@@ -2,22 +2,22 @@
 
 apt-fast install -y make g++
 
-NVM_VERSION='0.35.3'
+NVM_VERSION='0.37.0'
 
 curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v${NVM_VERSION}/install.sh | bash && \
 echo ". ~/.nvm/nvm.sh" >> ~/.zshrc
 
 fish -lc "omf i bass nvm"
 
-NODE_VERSION_LTS=12.18.3
-NODE_VERSION=14.9.0
+NODE_VERSION_LTS=14.15.1
+NODE_VERSION=15.2.1
 
 cp -f ~/.nvm/nvm.sh ~/.nvm/nvm-tmp.sh && \
 echo "nvm install v${NODE_VERSION_LTS}" >> ~/.nvm/nvm-tmp.sh && \
 echo "nvm install v${NODE_VERSION}" >> ~/.nvm/nvm-tmp.sh && \
-echo "nvm alias 12 ${NODE_VERSION_LTS}" >> ~/.nvm/nvm-tmp.sh && \
-echo "nvm alias 14 ${NODE_VERSION}" >> ~/.nvm/nvm-tmp.sh && \
-echo "nvm alias default 12" >> ~/.nvm/nvm-tmp.sh && \
+echo "nvm alias 14 ${NODE_VERSION_LTS}" >> ~/.nvm/nvm-tmp.sh && \
+echo "nvm alias 15 ${NODE_VERSION}" >> ~/.nvm/nvm-tmp.sh && \
+echo "nvm alias default 14" >> ~/.nvm/nvm-tmp.sh && \
 echo "nvm use default" >> ~/.nvm/nvm-tmp.sh && \
 bash ~/.nvm/nvm-tmp.sh
 rm ~/.nvm/nvm-tmp.sh && \
