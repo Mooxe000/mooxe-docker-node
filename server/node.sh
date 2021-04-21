@@ -9,14 +9,14 @@ echo ". ~/.nvm/nvm.sh" >> ~/.zshrc
 
 fish -lc "omf i bass nvm"
 
-NODE_VERSION_LTS=14.15.4
-NODE_VERSION=15.6.0
+NODE_VERSION_LTS=14.16.1
+NODE_VERSION=16.0.0
 
 cp -f ~/.nvm/nvm.sh ~/.nvm/nvm-tmp.sh && \
 echo "nvm install v${NODE_VERSION_LTS}" >> ~/.nvm/nvm-tmp.sh && \
 echo "nvm install v${NODE_VERSION}" >> ~/.nvm/nvm-tmp.sh && \
 echo "nvm alias 14 ${NODE_VERSION_LTS}" >> ~/.nvm/nvm-tmp.sh && \
-echo "nvm alias 15 ${NODE_VERSION}" >> ~/.nvm/nvm-tmp.sh && \
+echo "nvm alias 16 ${NODE_VERSION}" >> ~/.nvm/nvm-tmp.sh && \
 echo "nvm alias default 14" >> ~/.nvm/nvm-tmp.sh && \
 echo "nvm use default" >> ~/.nvm/nvm-tmp.sh && \
 bash ~/.nvm/nvm-tmp.sh

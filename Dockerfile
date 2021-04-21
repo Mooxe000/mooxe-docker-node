@@ -29,13 +29,13 @@ RUN fish -lc "omf i bass nvm"
     # echo ". ~/.config/fish/nvm-wrapper/nvm.fish" >> ~/.config/fish/config.fish
 
 # npm
-ENV NODE_VERSION_LTS 14.15.4
-ENV NODE_VERSION 15.6.0
+ENV NODE_VERSION_LTS 14.16.1
+ENV NODE_VERSION 16.0.0
 RUN cp -f ~/.nvm/nvm.sh ~/.nvm/nvm-tmp.sh && \
     echo "nvm install v$NODE_VERSION_LTS" >> ~/.nvm/nvm-tmp.sh && \
     echo "nvm install v$NODE_VERSION" >> ~/.nvm/nvm-tmp.sh && \
     echo "nvm alias 14 $NODE_VERSION_LTS" >> ~/.nvm/nvm-tmp.sh && \
-    echo "nvm alias 15 $NODE_VERSION" >> ~/.nvm/nvm-tmp.sh && \
+    echo "nvm alias 16 $NODE_VERSION" >> ~/.nvm/nvm-tmp.sh && \
     echo "nvm alias default 14" >> ~/.nvm/nvm-tmp.sh && \
     bash ~/.nvm/nvm-tmp.sh && \
     rm ~/.nvm/nvm-tmp.sh && \
