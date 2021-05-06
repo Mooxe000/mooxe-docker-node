@@ -86,7 +86,8 @@ RUN /bin/bash -lc 'yarn global add npm yarn'
 RUN /bin/bash -lc 'yarn global add node-gyp'
 
 # RUN /bin/bash -lc 'yarn global add node-inspector'
-# RUN /bin/bash -lc 'yarn global add pnpm npm-check'
+RUN /bin/bash -lc 'yarn global add pnpm npm-check'
+RUN /bin/bash -lc 'yarn global add nnrm'
 
 # RUN /bin/bash -lc 'yarn global add coffeescript'
 
