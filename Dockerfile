@@ -30,7 +30,7 @@ RUN fish -lc "omf i bass nvm"
 
 # npm
 ENV NODE_VERSION_LTS 14.16.1
-ENV NODE_VERSION 16.0.0
+ENV NODE_VERSION 16.1.0
 RUN cp -f ~/.nvm/nvm.sh ~/.nvm/nvm-tmp.sh && \
     echo "nvm install v$NODE_VERSION_LTS" >> ~/.nvm/nvm-tmp.sh && \
     echo "nvm install v$NODE_VERSION" >> ~/.nvm/nvm-tmp.sh && \
@@ -56,6 +56,7 @@ RUN bash -lc "curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | apt-key add -"
 
 # echo "nvm use default" >> ~/.nvm/nvm-tmp.sh && \
 RUN /bin/bash -lc 'nvm use default'
+RUN /bin/bash -lc 'npm i -g npm'
 RUN /bin/bash -lc 'npm i -g yarn'
 
 # RUN yarn config set registry https://registry.npm.taobao.org
@@ -76,7 +77,8 @@ RUN /bin/bash -lc 'npm i -g yarn'
 #     >> ~/.yarnrc
 
 # RUN /bin/bash -lc 'yarn global add yrm'
-# RUN /bin/bash -lc 'yrm use taobao'
+RUN /bin/bash -lc 'yarn global add nnrm'
+RUN /bin/bash -lc 'nnrm use taobao'
 
 # -- --global-folder
 # RUN echo "--global-folder \"$(bash -lc 'npm root -g')/../\"" \
@@ -87,7 +89,6 @@ RUN /bin/bash -lc 'yarn global add node-gyp'
 
 # RUN /bin/bash -lc 'yarn global add node-inspector'
 RUN /bin/bash -lc 'yarn global add pnpm npm-check'
-RUN /bin/bash -lc 'yarn global add nnrm'
 
 # RUN /bin/bash -lc 'yarn global add coffeescript'
 

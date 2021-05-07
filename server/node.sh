@@ -10,7 +10,7 @@ echo ". ~/.nvm/nvm.sh" >> ~/.zshrc
 fish -lc "omf i bass nvm"
 
 NODE_VERSION_LTS=14.16.1
-NODE_VERSION=16.0.0
+NODE_VERSION=16.1.0
 
 cp -f ~/.nvm/nvm.sh ~/.nvm/nvm-tmp.sh && \
 echo "nvm install v${NODE_VERSION_LTS}" >> ~/.nvm/nvm-tmp.sh && \
@@ -24,6 +24,7 @@ rm ~/.nvm/nvm-tmp.sh && \
 cp /etc/profile /etc/profile.bak && \
 echo '. ~/.nvm/nvm.sh' >> /etc/profile
 
+/bin/bash -lc 'npm i -g npm'
 /bin/bash -lc 'npm i -g yarn'
-/bin/bash -lc 'yarn global add yrm'
-/bin/bash -lc 'yrm use taobao'
+/bin/bash -lc 'yarn global add nnrm pnpm'
+/bin/bash -lc 'nnrm use taobao'
